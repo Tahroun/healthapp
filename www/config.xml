@@ -5,7 +5,7 @@
         A blank PhoneGap app.
     </description>
     <plugin name="cordova-plugin-geolocation" spec="~1.0.0" />
-    <plugin name="cordova-plugin-pedometer" spec="~1.0.0"/>
+    <plugin name="cordova-plugin-pedometer" spec="~0.4.0"/>
     <author email="support@phonegap.com" href="http://phonegap.com">
         PhoneGap Team
     </author>
