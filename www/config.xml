@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.phonegap.helloworld" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>Health App</name>
+    <description>
+        A blank PhoneGap app.
+    </description>
+    <author email="support@phonegap.com" href="http://phonegap.com">
+        PhoneGap Team
+    </author>
+    <plugin name="cordova-plugin-geolocation"/>
+    <plugin name="cordova-plugin-pedometer"/>
+
+    <!-- <js-module src="plugins/cordova-plugin-pedometer/www/pedometer.js" name="Pedometer">
+        <clobbers target="pedometer" />
+    </js-module>
+    <platform name="ios">
+        
+            <feature name="Pedometer">
+                <param name="ios-package" value="Pedometer" />
+                <param name="onload" value="true" />
+            </feature>
+        
+        <header-file src="plugins/cordova-plugin-pedometer/src/ios/Pedometer.h" />
+        <source-file src="plugins/cordova-plugin-pedometer/src/ios/Pedometer.m" />
+        <framework src="CoreMotion.framework" />
+    </platform>
+     <platform name="android">
+        
+            <feature name="Pedometer">
+                <param name="android-package" value="org.apache.cordova.pedometer.PedoListener" />
+            </feature>
+        
+        <source-file src="plugins/cordova-plugin-pedometer/src/android/PedoListener.java" target-dir="src/org/apache/cordova/pedometer" />
+    </platform> -->
+    <content src="index.html" />
+    <access origin="*" />
+</widget>
