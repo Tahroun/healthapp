@@ -339,40 +339,6 @@
         		valid=false;
     		}else{
     			valid=true;
-                            /////////////////// BMI ///////////////////////////
-            // user inputs
-            var height = Number(document.getElementById("height_input").value);
-            var heightunits = document.getElementById("height_unit").value;
-            var weight = Number(document.getElementById("weight_input").value);
-            var weightunits = document.getElementById("weight_unit").value;
-        
-        
-            //Convert all units to metric
-            if (heightunits == "inches") {height /= 39.37}; //INCHES TO METRES
-            if (heightunits == "cm") {height /= 100}; //CENTIMETRES TO METRES
-            if (weightunits == "lb") {weight /= 2.205}; //POUNDS TO KILOGRAMS
-        
-            //Perform calculation
-        
-            var BMI = Math.round(weight / Math.pow(height, 2));
-        
-            //Display result of calculation
-            document.getElementById("output").innerText = (BMI);
-        
-            var output = BMI;
-
-            if (output < 18.5){
-                document.getElementById("comment").innerText = "Underweight";
-            }
-            else if (output >= 18.5 && output <= 25){
-                document.getElementById("comment").innerText = "Normal";
-            }
-            else if (output >= 25 && output <= 30){
-                document.getElementById("comment").innerText = "Obese";
-            }
-            else if (output > 30){
-                document.getElementById("comment").innerText = "Overweight";
-            }
     		}
     		/////////////////////////////////////////////////////////////
     		////////////////// AGE VALIDATION ///////////////////////////
@@ -406,10 +372,43 @@
     		}else{
     			valid=true;
     		}
+            // user inputs
+            var height = Number(document.getElementById("height_input").value);
+            var heightunits = document.getElementById("height_unit").value;
+            var weight = Number(document.getElementById("weight_input").value);
+            var weightunits = document.getElementById("weight_unit").value;
+        
+        
+            //Convert all units to metric
+            if (heightunits == "inches") {height /= 39.37}; //INCHES TO METRES
+            if (heightunits == "cm") {height /= 100}; //CENTIMETRES TO METRES
+            if (weightunits == "lb") {weight /= 2.205}; //POUNDS TO KILOGRAMS
+        
+            //Perform calculation
+        
+            var BMI = Math.round(weight / Math.pow(height, 2));
+        
+            //Display result of calculation
+            document.getElementById("output").innerText = (BMI);
+        
+            var output = BMI;
 
-
+            if (output < 18.5){
+                document.getElementById("comment").innerText = "Underweight";
+            }
+            else if (output >= 18.5 && output <= 25){
+                document.getElementById("comment").innerText = "Normal";
+            }
+            else if (output >= 25 && output <= 30){
+                document.getElementById("comment").innerText = "Obese";
+            }
+            else if (output > 30){
+                document.getElementById("comment").innerText = "Overweight";
+            }
             // document.getElementById("answer").value = output; 
-		 }
+
+
+        }
 
 		 ///////////////////////////////////////////////////////////////
     	/////////////////////////BMI CALCULATION////////////////////////
