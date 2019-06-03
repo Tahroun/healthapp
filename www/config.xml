@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.phonegap.helloworld" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>Health App</name>
+    <description>
+        A blank PhoneGap app.
+    </description>
+    <author email="support@phonegap.com" href="http://phonegap.com">
+        PhoneGap Team
+    </author>
+    <platform name="android">
+        <!--
+            ldpi    : 36x36 px
+            mdpi    : 48x48 px
+            hdpi    : 72x72 px
+            xhdpi   : 96x96 px
+            xxhdpi  : 144x144 px
+            xxxhdpi : 192x192 px
+        -->
+        <icon src="res/icon_ ldpi_36.png" density="ldpi" />
+        <icon src="res/icon_mdpi_48.png" density="mdpi" />
+        <icon src="res/icon_hdpi_72.png" density="hdpi" />
+        <icon src="res/icon_xhdpi_96.png" density="xhdpi" />
+        <icon src="res/icon_xxhdpi_144.png" density="xxhdpi" />
+        <icon src="res/icon_xxxhdpi_192.png" density="xxxhdpi" />
+  </platform>
+    <plugin name="cordova-plugin-geolocation" spec="~1.0.0"/>
+    <plugin name="cordova-plugin-pedometer" spec="~0.4.0"/>
+    <content src="index.html" />
+    <access origin="*" />
+</widget>

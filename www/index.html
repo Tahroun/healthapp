@@ -1,0 +1,1575 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Healthy Lifestyle</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+
+	<link rel="stylesheet" type="text/css" href="js/jquery.mobile-1.4.5.css">
+    <link rel="stylesheet" href="js/themes/blackheader.min.css" />
+    <link rel="stylesheet" href="js/themes/jquery.mobile.icons.min.css" />
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/jquery.mobile-1.4.5.js"></script>
+    <link rel="stylesheet" href="leaflet/leaflet.css"/>
+    <script src="leaflet/leaflet.js"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <!-- Load Esri Leaflet from CDN -->
+    <script src="https://unpkg.com/esri-leaflet@2.2.4/dist/esri-leaflet.js"
+    integrity="sha512-tyPum7h2h36X52O2gz+Pe8z/3l+Y9S1yEUscbVs5r5aEY5dFmP1WWRY/WLLElnFHa+k1JBQZSCDGwEAnm2IxAQ=="
+    crossorigin=""></script>
+
+
+    <!-- Load Esri Leaflet Geocoder from CDN -->
+    <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.css"
+        integrity="sha512-v5YmWLm8KqAAmg5808pETiccEohtt8rPVMGQ1jA6jqkWVydV5Cuz3nJ9fQ7ittSxvuqsvI9RSGfVoKPaAJZ/AQ=="
+        crossorigin="">
+    <script src="https://unpkg.com/esri-leaflet-geocoder@2.2.14/dist/esri-leaflet-geocoder.js"
+        integrity="sha512-uK5jVwR81KVTGe8KpJa1QIN4n60TsSV8+DPbL5wWlYQvb0/nYNgSOg9dZG6ViQhwx/gaMszuWllTemL+K+IXjg=="
+        crossorigin="">   
+    </script>
+
+    <script type="text/javascript" src="cordova.js"></script>
+
+    <!-- plugin -->
+
+    <style type="text/css">
+        .backimg{
+            /*background-image: linear-gradient(to top left , white,indigo,black,red);*/
+            background-image: url(img/runback.jpg);
+            background-repeat: no-repeat;
+            background-size:100% 100%;
+            margin-top: -6px;
+        }
+        .zoom {
+
+            padding: 30px;
+            transition: transform .2s; 
+            margin: 0 auto;
+            width: 100%;
+            height: 50%;
+        }
+        .zoom:hover {
+            transform: scale(1.5);
+       }
+        /**.ui-grid-a input{
+            height:75%;
+            width:75%;
+        }*/
+        .center-button1{
+             height:500;
+        }
+        img {
+            height:100%;
+            width:100%;
+        }
+        div input{
+            transition: transform .2s; /* Animation */
+            width:100%;
+            height:100%;
+        }
+        figcaption {
+            text-align: center;
+            color:black;
+        }
+        .labeltext{
+            text-align: center;
+            font-size: larger;
+            font-weight: bold;
+            color: white;
+            margin:0; 
+            padding-top: 1.2em;
+        }
+        .thumbnaildiv{
+            padding: 5px;
+        }
+        .thumbnailabs{
+            background-image: url('img/absback.jpg');
+            background-size: 100% 100%;
+            height:7em;
+            background-repeat: no-repeat;
+            font-size: x-large;
+            color: white;
+            width: 100%;
+            border: 2px solid white;
+        }
+        .thumbnailabs1{
+            background-image: url('img/chestback.jpg');
+            background-size: 100% 100%;
+            height:7em;
+            background-repeat: no-repeat;
+            font-size: x-large;
+            color: white;
+            width: 100%;
+            border: 2px solid white;
+        }
+        .thumbnailabs2{
+            background-image: url('img/fullbodyback.jpg');
+            background-size: 100% 100%;
+            height:7em;
+            background-repeat: no-repeat;
+            font-size: x-large;
+            color: white;
+            width: 100%;
+            border: 2px solid white;
+        }
+        .thumbnailabs3{
+            background-image: url('img/armback.jpg');
+            background-size: 100% 100%;
+            height:7em;
+            background-repeat: no-repeat;
+            font-size: x-large;
+            color: white;
+            width: 100%;
+            border: 2px solid white;
+        }
+        .thumbnailabs4{
+            background-image: url('img/legback.jpg');
+            background-size: 100% 100%;
+            height:7em;
+            background-repeat: no-repeat;
+            font-size: x-large;
+            color: white;
+            width: 100%;
+            border: 2px solid white;
+        }
+        .content img{
+            
+            height:100px;
+            width:100px;
+            border-radius: 50%;
+            float: left;
+            overflow: hidden;
+
+        }
+        .content{
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            
+            overflow: hidden;
+        }
+        .content p{
+            
+            display: block;
+            padding-left: 150px;
+            padding-top: 10px;
+            font-family:sans-serif;
+        }
+        .workpara{
+            background-color: rgba(235, 231, 0, 1);
+            text-align: center;
+            font-size: x-large;
+            color:black;
+            text-decoration: underline;
+        }
+        .workimg{
+            height: 15em;
+        }
+        .workdiv{
+            background-color: white;
+            padding: 5px;
+            margin: 10px;
+            line-height: 1.5em;
+        }
+
+        /*NUBEE CSS*/
+        .split {
+          height: 100%;
+          width: 50%;
+          position: fixed;
+          z-index: 1;
+          top: 0;
+          overflow-x: hidden;
+          padding-top: 20px;
+
+        }
+
+        .left {
+          left: 0;
+          background-color: red;
+        }
+
+        .right {
+          right: 0;
+          background-color: green;
+        }
+
+        .centered {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+        }
+
+        .centered img {
+          width: 150px;
+          border-radius: 50%;
+        }
+
+        /* formating for diets*/
+        .bk_div{
+            border-style: solid;
+            border-width: 1px;
+            margin: 0px;
+            padding: 5px 5px 5px 5px;
+            background-color: white;
+
+
+        }
+        .ln_div{
+            border-style: solid;
+            border-width: 1px;
+            margin: 0px;
+            padding: 5px 5px 5px 5px;
+            background-color: white;
+        }
+        .di_div{
+            border-style: solid;
+            border-width: 1px;
+            margin: 0px;
+            padding: 5px 5px 5px 5px;
+            background-color: white;
+        }
+        .imag{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+        .title{
+            font-weight: bold; 
+            font-family: sans-serif;
+        }
+        .amount{
+            font-family: monospace;
+        } 
+        .desc{
+            font-family: serif;
+        }
+        .choose_following{
+            background-color: black; 
+            text-align: center; 
+            color: white;
+        }
+        #about_in{
+            border-style: solid;
+            border-width: 1px;
+            margin: 0px;
+            padding: 5px 5px 5px 5px;
+            background-color: white;
+            }
+
+        /*FOR PANEL */
+        .bar1, .bar2, .bar3 {
+            width: 12px;
+            height:3px;
+            background-color: #333;
+            margin: 1px 4px;
+            transition: 0.4s;
+
+        }
+        .center_link {
+          
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          height: 100%;
+          width: 60%;
+          border: 3px solid #73AD21;
+          padding: 10px;
+          margin-top: 20px;
+          text-align: center;
+        }
+        .img_panel{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+            height: 100%;
+            margin-bottom: 50px;
+
+        }
+
+    </style>
+	<script type="text/javascript">
+       
+        function steps1(){
+           window.location = "#stepspage"; 
+       }
+
+       function steps2(){
+            
+           var successHandler = function (pedometerData) {
+                // pedometerData.startDate; -> ms since 1970
+                // pedometerData.endDate; -> ms since 1970
+                //pedometerData.numberOfSteps;
+                //document.getElementByid("mysteps").innerHTML = pedometerData.distance;
+                document.getElementById("mysteps").innerHTML = pedometerData.distance;
+
+                // pedometerData.floorsAscended;
+                // pedometerData.floorsDescended;
+            };
+           var onError = function() {
+                document.getElementById("mysteps").innerHTML = 'error';
+               
+            };   
+            pedometer.startPedometerUpdates(successHandler, onError);
+            
+
+            
+        }
+
+        function pageone(){
+
+            window.location = "#pageone";
+        }
+        
+        
+		function validate(){
+			var valid;
+			valid=false;
+			///////////////// FULL NAME VALIDATION ///////////////////////
+    		var regName = /^[a-z][a-z\s]*$/;
+    		var name = document.getElementById('fullname').value;
+    		if(!regName.test(name)){
+        		alert('Please enter your full name.');
+        		document.getElementById('fullname').focus();
+        		valid=false;
+    		}else{
+    			valid=true;
+                            /////////////////// BMI ///////////////////////////
+            // user inputs
+            var height = Number(document.getElementById("height_input").value);
+            var heightunits = document.getElementById("height_unit").value;
+            var weight = Number(document.getElementById("weight_input").value);
+            var weightunits = document.getElementById("weight_unit").value;
+        
+        
+            //Convert all units to metric
+            if (heightunits == "inches") {height /= 39.37}; //INCHES TO METRES
+            if (heightunits == "cm") {height /= 100}; //CENTIMETRES TO METRES
+            if (weightunits == "lb") {weight /= 2.205}; //POUNDS TO KILOGRAMS
+        
+            //Perform calculation
+        
+            var BMI = Math.round(weight / Math.pow(height, 2));
+        
+            //Display result of calculation
+            document.getElementById("output").innerText = (BMI);
+        
+            var output = BMI;
+
+            if (output < 18.5){
+                document.getElementById("comment").innerText = "Underweight";
+            }
+            else if (output >= 18.5 && output <= 25){
+                document.getElementById("comment").innerText = "Normal";
+            }
+            else if (output >= 25 && output <= 30){
+                document.getElementById("comment").innerText = "Obese";
+            }
+            else if (output > 30){
+                document.getElementById("comment").innerText = "Overweight";
+            }
+    		}
+    		/////////////////////////////////////////////////////////////
+    		////////////////// AGE VALIDATION ///////////////////////////
+    		//starting age:8, ending age:116
+    		valid=false;
+    		var user_age = document.getElementById('age').value;
+    		if (user_age>=8 && user_age <=116){
+    			valid=true;
+    		}else{
+    			alert('Age should be between 8-116.');
+    			valid=false;
+    			
+    		}
+    		//////////////////////////////////////////////////////////////
+    		///////////////////////HEIGHT VALIDATION//////////////////////
+    		valid=false;
+    		var user_height= document.getElementById('height_input');
+    		if (user_height.value.length==0){
+    			alert('Please enter your height.');
+    			valid=false;
+    		}else{
+    			valid=true;
+    		}
+    		///////////////////////////////////////////////////////////////
+    		//////////////////////WEIGHT VALIDATION////////////////////////
+    		valid=false;
+    		var user_weight= document.getElementById('weight_input');
+    		if (user_weight.value.length==0){
+    			alert('Please enter your weight.');
+    			valid=false;
+    		}else{
+    			valid=true;
+    		}
+
+
+            // document.getElementById("answer").value = output; 
+		 }
+
+		 ///////////////////////////////////////////////////////////////
+    	/////////////////////////BMI CALCULATION////////////////////////
+         /** 
+        function computeBMI() {
+            // user inputs
+            var height = Number(document.getElementById("height_input").value);
+            var heightunits = document.getElementById("height_unit").value;
+            var weight = Number(document.getElementById("weight_input").value);
+            var weightunits = document.getElementById("weight_unit").value;
+        
+        
+            //Convert all units to metric
+            if (heightunits == "inches") {height /= 39.37}; //INCHES TO METRES
+            if (heightunits == "cm") {height /= 100}; //CENTIMETRES TO METRES
+            if (weightunits == "lb") {weight /= 2.205}; //POUNDS TO KILOGRAMS
+        
+            //Perform calculation
+        
+            var BMI = Math.round(weight / Math.pow(height, 2));
+        
+            //Display result of calculation
+            document.getElementById("output").innerText = (BMI);
+        
+            var output = BMI;
+
+            if (output < 18.5){
+                document.getElementById("comment").innerText = "Underweight";
+            }
+            else if (output >= 18.5 && output <= 25){
+                document.getElementById("comment").innerText = "Normal";
+            }
+            else if (output >= 25 && output <= 30){
+                document.getElementById("comment").innerText = "Obese";
+            }
+            else if (output > 30){
+                document.getElementById("comment").innerText = "Overweight";
+            }
+            // document.getElementById("answer").value = output; 
+
+            }*/
+
+            // FUNCTION MAPS
+            function getloc(){
+                var latitude;
+                var longitude;
+                var mymap;
+
+            if(navigator.geolocation == undefined){
+                alert("Geolocation Undefined");
+                }else{
+                    document.getElementById("avai").innerHTML = "Geolocation Available";
+                
+                    navigator.geolocation.getCurrentPosition(userLocated,locationError);
+                    
+                        function userLocated(position){
+                            latitude = position.coords.latitude;
+                            longitude = position.coords.longitude;
+                            var timeOfLocation = position.timestamp;
+                            document.getElementById("latid").innerHTML = latitude;
+                            document.getElementById("longid").innerHTML = longitude;
+
+                            //markers
+                            
+                            //end markers
+
+                            mymap = L.map("mapid").setView([latitude,longitude],12);
+
+                            L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {maxZoom: 19,attribution: 'Map data &copy;'+'<a href="https://www.openstreetmap.org/">OpenStreetMap</a>'+'contributors,<a href="https://creativecommons.org/licenses'+'/by-sa/2.0/">CC-BY-SA</a>,Imagery © <a href="https://'+'www.mapbox.com/">Mapbox</a>',id: 'mapbox.streets',accessToken:'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYyc'+'XBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw'}).addTo(mymap);
+
+                             
+
+                             //search control
+                             var searchControl = L.esri.Geocoding.geosearch().addTo(mymap);
+                             var results = L.layerGroup().addTo(mymap);
+                             searchControl.on('results', function(data){
+                                results.clearLayers();
+                                for (var i = data.results.length - 1; i >= 0; i--) {results.addLayer(L.marker(data.results[i].latlng));
+                                }});
+                            //end search
+                            
+                            //start nearby
+                                //end nearby
+                            //start marker
+                            var marker = L.marker([latitude,longitude]).addTo(mymap);
+                            marker.bindPopup("You are here").openPopup();
+
+                            var circle = L.circle([latitude,longitude],{color:'red',fillColor:'#f03',fillOpacity:0.5,radius:100}).addTo(mymap);
+
+
+                            circle.bindPopup("This is your vicinity");
+                            //end marker
+
+                            var  fitness4LifeGym = L.marker([-20.301192, 57.518110]).addTo(mymap);
+                            var  perfectShape= L.marker([-20.301794, 57.518496]).addTo(mymap);
+                            var  war = L.marker([-20.292939, 57.518410]).addTo(mymap);
+                            var  combatjujitsu = L.marker([-20.293050, 57.517562]).addTo(mymap);
+                            var  tfp = L.marker([-20.303730, 57.523174]).addTo(mymap);
+                            var  stPaulTaekwondoClub = L.marker([-20.288328, 57.509141]).addTo(mymap);
+
+                            fitness4LifeGym.bindPopup("Fitness 4 Life Gym").openPopup();
+                            perfectShape.bindPopup("Perfect Shape Gym").openPopup();
+                            war.bindPopup("warriors Gym").openPopup();
+                            combatjujitsu.bindPopup("Combat Jiu-Jitsu Castel").openPopup();
+                            tfp.bindPopup("TFP Eau Coulee").openPopup();
+                            stPaulTaekwondoClub.bindPopup("St Paul Taek Wondo Club").openPopup();
+
+
+                    }
+            
+                function locationError(error){
+                    switch(error.code){
+                        case error.PERMISSION_DENIED:
+                        alert("Permission denied- "+ error.message);
+                        break;
+                        case error.POSITION_UNAVAILABLE:
+                        alert("Position Not available- "+error.message);
+                        break;
+                        case error.TIMEOUT:
+                        alert("Request time out"+ error.message);
+                        break;
+                    }
+                }
+                    
+        }
+
+
+        }       
+// END FUNCTION MAPS
+
+//DATABASE
+    document.addEventListener("deviceready", onDeviceReady, false);
+        var db;
+
+        function onDeviceReady(){
+            db = window.openDatabase ("myWeightDB" , "1.0","simple Demo", 2*1024*1024);
+            db.transaction(createDB, successCB, errorCB)
+        }
+        function createDB(tx){
+            tx.executeSql('DROP TABLE IF EXISTS tblWeight');
+            tx.executeSql("CREATE TABLE IF NOT EXISTS tblWeight(id INT,week INT,weight INT)");
+        }
+        function errorCB(err){
+            alert("SQL Error: "+err.code);
+        }
+        function successCB(){
+            alert("Database & Table Created");
+        }
+        function insertDB(tx){
+            var week = $("[name='weekout']").val();
+            var weight = $("[name='weightout']").val();
+            var sql = "INSERT INTO tblWeight (week, weight) VALUES (?,?)";
+            tx.executeSql(sql,[week,weight], successQueryDB,errorCB);
+        }
+        function successQueryDB(tx) {
+            alert("record inserted CARRY TO NEXT WEEK AND UPDATE AS NEEDED");
+            tx.executeSql('SELECT * From tblWeight', [],renderListCB, errorCB);
+        }
+        function renderListCB(tx, results){
+            var htmlString = '';
+            var len = results.rows.length;
+
+            for (var i=0; i<len; i++){
+                htmlString+='<li>'+"Week "+results.rows.item(i).week+'<br>'+"Weight Kg "+results.rows.item(i).weight+'<li>';
+
+            }
+            $("#resultList").html(htmlString);
+            // $("#resultList").listview("refresh");
+                
+        }
+        function submitweight(){
+            //onDeviceReady();
+            db.transaction(insertDB,errorCB);
+            // alert('inserted in db view chart');
+            $.mobile.changePage("#graphpage",{reverse:false, transition:"slide"});
+            graph();
+            return false;
+        }
+
+        function graph(){
+        window.location = "#graphpage";
+                  
+
+          var chart = new CanvasJS.Chart("chartContainer", {
+            animationEnabled: true,
+            title:{text: "Weight Gain/Loss Tracking"},
+            axisX:{title:"Week"},
+            axisY: {title: "Weight (Kg)",includeZero: false,
+            },
+            data: 
+            [{type: "line",color: "#F08080",dataPoints: 
+            [{ x: 1, y: 90 },
+            { x: 2, y: 87 },
+            { x: 3, y: 85 },
+            { x: 4, y: 82 }]
+          }]
+          });
+          chart.render();
+
+          }
+
+        
+
+//END DATABASE
+
+</script>
+</head>
+<body>
+    <!-- HOME PAGE -->
+    <div data-role="page" id="homepage">
+        <div data-role="header">
+            <h3>Home</h3>
+        </div>
+        <div role="main">
+       
+            <div class="ui-grid-solo">
+                <div class="ui-block-a"><div class="thumbnail"><img class="backgroundhome" src="img/slogan2.jpg"/></div></div>
+            </div>
+            <div class="backimg">
+            <div class="ui-grid-a" >
+                <div class="ui-block-a zoom">
+                    <a href="#pageone" data-transition="flip"><img src="img/bmiicon.png" alt="BMI"><figcaption>Calculate BMI</figcaption></a>
+                    <!-- <input type="image" data-role="button" data-transition="flip" onclick="pageone()" src="img/bmiicon.png"> -->
+                </div>
+                <div class="ui-block-b zoom"><a href="#page_choose_veg_nonveg" data-transition="pop"><img src="img/foodicon1.png" alt="Diets"><figcaption>Diet Plans</figcaption></a></div>
+            </div>
+            <div class="ui-grid-a">
+                <div class="ui-block-a zoom"><a href="#workoutpage" data-transition="fade"><img src="img/workouticon.png" alt="workout"><figcaption>Workouts</figcaption></a></div>
+                <div class="ui-block-b zoom"><a href="#locationpage" data-transition="slide"><img src="img/locationicon.png" alt="Location"><figcaption>Location</figcaption></a></div>
+            </div>
+            <div class="ui-grid-a">
+                <div class="ui-block-a zoom"><a href="#page_about" data-transition="flip"><img src="img/helpicon.png" alt="about"><figcaption>Help</figcaption></a></div>   
+                <div class="ui-block-b zoom"><a href="#stepspage" data-transition="slide"><img src="img/stepsicon.png" alt="Steps Counter"><figcaption>Steps Counter</figcaption></a></div>
+            </div>
+             
+            </div>
+        </div>
+    
+        <div data-role="footer">
+            <h1>Promoting healthy lifestyle</h1>
+        </div>
+    </div>
+    <!-- END HOMEPAGE -->
+
+    <!-- BMI FORM -->
+	<div data-role="page" id="pageone">
+		
+		  <div data-role="header">
+            <a href="#" data-icon="arrow-l" data-rel="back" >BACK</a>
+		      <h1>Healthy Lifestyle</h1>
+			
+		  </div>
+			<div role="main" class="ui-content"> 
+			<form>
+				<label for="fullname">Enter full name:</label>
+ 				<input type="text" required="true" name="fullname" id="fullname"><br>
+ 				
+
+                <label for="age">Enter age:</label>
+ 				<input type="number" name="age" id="age"><br>
+
+
+ 				<label for="gender">Select gender:</label>
+ 				<select id="gender" name="gender">
+					<option value="M">Male</option>
+					<option value="F">Female</option>
+				</select>
+           
+ 			    Enter your height: 
+                
+ 					<input type="number" id="height_input"/>
+                        
+                        
+					<select type="multiple" id="height_unit">
+                		<option value="cm" selected="selected">centimetres</option>
+                		<option value="inches">inches</option>
+            		</select>
+ 			
+    
+ 				
+ 					<label for="weight_input">Enter your weight: </label>
+                    <input type="number" id="weight_input" required />
+            		<select type="multiple" id="weight_unit">
+                		<option value="kg" selected="selected">kilograms</option>
+                		<option value="lb">pounds</option>
+            		</select>
+
+ 				<input type="button" onclick="validate();" value="Submit">
+        		
+        		<h1>Your BMI is: <span id="output">?</span></h1>
+        
+        		<h2>This means you are: <span id="comment"> ?</span> </h2> 
+  				
+  			</form>
+            </div>
+            <div data-role="footer">
+                <h2>HYBRID APPLICATION</h2>
+            </div>
+		</div>
+
+        <!-- END BMI -->
+        <!-- ******************************************************************************************************** -->
+        <!-- ******************************************************************************************************** -->
+        <!-- ******************************************************************************************************** -->
+        <!-- DIETS PAGE & ABOUT NUBEE -->
+        <div data-role="page" id="page_choose_veg_nonveg" data-dialog="true">
+    
+            <div data-role="header">
+                <h1 style="font-size: 12px; height:27px;">Choose your category</h1>
+                <a href="#mypanel">
+                    <div class="ui-panel-animate">
+                        <div class="bar1"></div>
+                        <div class="bar2"></div>
+                        <div class="bar3"></div>
+                    </div>
+                </a>
+            </div>
+            <div data-role="panel" id="mypanel" data-position="left" data-display="overlay">
+                <img class="img_panel" src="img/healthy_lifestyle.png" width="225px" height="120px">
+                <a href="#" class="center_link" >BMI Calculator</a>
+                <br>
+                <a href="#page_choose_veg_nonveg" class="center_link">Diet Plan</a>
+                <br>
+                <a href="#" class="center_link">Workout Plan</a>
+                <br>
+                <a href="#page_about" class="center_link">About</a>
+            </div><!-- /panel -->
+
+            <div role="main" class="ui-content">
+
+                <div class="split left">
+                    <div class="centered">
+                        <a href="#page_non_veg"><img src="img/nonveg.jpg" alt="Non-Vegetarian" width="200" height="100"></a>
+                        <a href="#page_non_veg"><h2 style="color:white; font-size:20px ;">Non-Vegetarian</h2></a>
+                    </div>
+                </div>
+
+                <div class="split right">
+                    <div class="centered">
+                        <a href="#page_veg"><img src="img/veg.jpg" alt="Vegetarian" width="200" height="100"></a>
+                        <a href="#page_veg"><h2 style="color:white;">Vegetarian</h2></a>
+                    </div>
+                </div>
+            </div>
+    
+    </div>
+
+
+     
+    <div data-role="page" id="page_non_veg" >
+        <div data-role="header">
+            <div data-role="header">
+                <h1>Non-Veg Diet</h1>
+                <a href="#mypanel">
+                <div class="ui-panel-animate">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+            </a>
+            <a href="#page_choose_veg_nonveg" data-transition="pop">Back</a>
+        </div>
+    </div>
+    <div data-role="panel" id="mypanel" data-position="left" data-display="overlay">
+        <img class="img_panel" src="img/healthy_lifestyle.png" width="225px" height="120px">
+
+        <a href="#" class="center_link" >BMI Calculator</a>
+        <br>
+        <a href="#page_choose_veg_nonveg" class="center_link">Diet Plan</a>
+        <br>
+        <a href="#" class="center_link">Workout Plan</a>
+        <br>
+        <a href="#page_about" class="center_link">About</a>
+    </div><!-- /panel -->
+
+    <div role="main" class="ui-content" style="background-image:url(img/non_veg_background.jpg);height:45em;overflow:hidden;background-size:100% 100%;">
+        <p class="choose_following">Please choose one of the following.</p>
+            <br>
+            <a class="ui-btn" href="#page_breakfast_non_veg">Breakfast</a>
+            <br>
+            <a class="ui-btn" href="#page_lunch_non_veg">Lunch</a>
+            <br>
+            <a class="ui-btn" href="#page_dinner_non_veg">Dinner</a>
+            <br>
+    </div>      
+    
+</div>
+
+
+<div data-role="page" id="page_veg" >
+    <div data-role="header">
+        <div data-role="header">
+            <h1>Veg Diet</h1>
+            <a href="#mypanel">
+                <div class="ui-panel-animate">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+            </a>
+            <a href="#page_choose_veg_nonveg" data-transition="pop">Back</a>
+        </div>
+    </div>
+    <div data-role="panel" id="mypanel" data-position="left" data-display="overlay">
+        <img class="img_panel" src="img/healthy_lifestyle.png" width="225px" height="120px">
+        <a href="#" class="center_link" >BMI Calculator</a>
+        <br>
+        <a href="#page_choose_veg_nonveg" class="center_link">Diet Plan</a>
+        <br>
+        <a href="#" class="center_link">Workout Plan</a>
+        <br>
+        <a href="#page_about" class="center_link">About</a>
+    </div><!-- /panel -->
+    <div role="main" class="ui-content" style="background-image:url(img/veg_background.jpg);">
+        <p class="choose_following">Please choose one of the following.</p>
+            <br>
+            <a class="ui-btn" href="#page_breakfast_veg">Breakfast</a>
+            <br>
+            <a class="ui-btn" href="#page_lunch_veg">Lunch</a>
+            <br>
+            <a class="ui-btn" href="#page_dinner_veg">Dinner</a>
+            <br>
+    </div>      
+    
+</div>
+
+<div data-role="page" id="page_breakfast_veg">
+    <div data-role="header">
+        <div data-role="header">
+            <h1>Breakfast (Veg)</h1>
+            <a href="#mypanel">
+                <div class="ui-panel-animate">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+            </a>
+            <a href="#page_veg" data-transition="pop">Back</a>
+        </div>
+    </div>
+    <div data-role="panel" id="mypanel" data-position="left" data-display="overlay">
+        <img class="img_panel" src="img/healthy_lifestyle.png" width="225px" height="120px">
+        <a href="#" class="center_link" >BMI Calculator</a>
+        <br>
+        <a href="#page_choose_veg_nonveg" class="center_link">Diet Plan</a>
+        <br>
+        <a href="#" class="center_link">Workout Plan</a>
+        <br>
+        <a href="#page_about" class="center_link">About</a>
+    </div><!-- /panel -->
+    <div role="main" class="ui-content" style="background-image:url(img/veg_background.jpg);">
+        <div id="breakfast1"class="bk_div" >
+            <div id="ima">
+                <img src="img/bk_veg/bk_veg_1.jpg" class="imag">
+            </div>
+            <div class="title">Apple & Cinnamon Porridge</div>
+            <div class="amount">Size 50g | 196 cal | 818kJ</div>
+            <div class="desc">A delicious creamy porridge with dried apple pieces and sliced almonds.</div>
+        </div>
+        <div id="breakfast2" class="bk_div">
+            <div class="ima">
+                <img src="img/bk_veg/bk_veg_2.jpg" class="imag">
+            </div>
+            <div class="title">Cocoa Clusters</div>
+            <div class="amount">Size 45g | 204 cal | 855kJ</div>
+            <div class="desc">Crunchy cocoa and oat clusters with cranberries and sliced almonds.</div>
+        </div>
+        <div id="breakfast3" class="bk_div">
+            <div class="ima">
+                <img src="img/bk_veg/bk_veg_3.jpg" class="imag">
+            </div>
+            <div class="title">Wholemeal Pancakes</div>
+            <div class="amount">Size 52g | 217 cal | 909kJ</div>
+            <div class="desc">Golden brown light and fluffy pancakes made with wholemeal flour.</div>
+        </div>
+        <div id="breakfast4" class="bk_div">
+            <div class="ima">
+                <img src="img/bk_veg/bk_veg_4.jpg" class="imag">
+            </div>
+            <div class="title">Café-style Banana Bread</div>
+            <div class="amount">Size 70g | 203 cal | 851kJ</div>
+            <div class="desc">A delicious wholemeal banana bread with a hint of cinnamon.</div>
+        </div>
+    </div>
+</div>
+
+<div data-role="page" id="page_lunch_veg" >
+    <div data-role="header">
+        <div data-role="header">
+            <h1>Lunch (Veg)</h1>
+            <a href="#mypanel">
+                <div class="ui-panel-animate">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+            </a>
+            <a href="#page_veg" data-transition="pop">Back</a>
+        </div>
+    </div>
+    <div data-role="panel" id="mypanel" data-position="left" data-display="overlay">
+        <img class="img_panel" src="img/healthy_lifestyle.png" width="225px" height="120px">
+        <a href="#" class="center_link" >BMI Calculator</a>
+        <br>
+        <a href="#page_choose_veg_nonveg" class="center_link">Diet Plan</a>
+        <br>
+        <a href="#" class="center_link">Workout Plan</a>
+        <br>
+        <a href="#page_about" class="center_link">About</a>
+    </div><!-- /panel -->
+    <div role="main" class="ui-content" style="background-image:url(img/veg_background.jpg);">
+        <div id="lunch1"class="ln_div">
+            <div class="ima">
+                <img src="img/ln_veg/ln_veg_1.jpg" class="imag">
+            </div>
+            <div class="title">Roasted Veggie All Round</div>
+            <div class="amount">Size 120g | 251 cal | 1050kJ</div>
+            <div class="desc">Multigrain bread filled with tender roasted vegetables and tasty cheddar cheese.</div>
+        </div>
+        <div id="lunch2" class="ln_div">
+            <div class="ima">
+                <img src="img/ln_veg/ln_veg_2.jpg" class="imag">
+            </div>
+            <div class="title">Smoked Paprika Paella</div>
+            <div class="amount">Size 360g | 212 cal | 888kJ</div>
+            <div class="desc">A delicious Mediterranean-inspired paella, tossed with herbs and spices.</div>
+        </div>
+        <div id="lunch3" class="ln_div">
+            <div class="ima">
+                <img src="img/ln_veg/ln_veg_3.jpg" class="imag">
+            </div>
+            <div class="title">Pumpkin & Fetta Rice Salad</div>
+            <div class="amount">Size 200g | 276 cal | 1154 kJ</div>
+            <div class="desc">Pumpkin, brown rice and fetta with a light citrus dressing.</div>
+        </div>
+        <div id="lunch4" class="ln_div">
+            <div class="ima">
+                <img src="img/ln_veg/ln_veg_4.jpg" class="imag">
+            </div>
+            <div class="title">Vegetable Tortellini</div>
+            <div class="amount">Size 225g | 236 cal | 988kJ</div>
+            <div class="desc">Al dente vegetable filled pasta in a delicious tomato sauce, finished with a light sprinkling of parmesean cheese.</div>
+        </div>
+    </div>
+</div>
+
+<div data-role="page" id="page_dinner_veg" >
+    <div data-role="header">
+        <div data-role="header">
+            <h1>Dinner (Veg)</h1>
+            <a href="#mypanel">
+                <div class="ui-panel-animate">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+            </a>
+            <a href="#page_veg" data-transition="pop">Back</a>
+        </div>
+    </div>
+    <div data-role="panel" id="mypanel" data-position="left" data-display="overlay">
+        <img class="img_panel" src="img/healthy_lifestyle.png" width="225px" height="120px">
+
+        <a href="#" class="center_link" >BMI Calculator</a>
+        <br>
+        <a href="#page_choose_veg_nonveg" class="center_link">Diet Plan</a>
+        <br>
+        <a href="#" class="center_link">Workout Plan</a>
+        <br>
+        <a href="#page_about" class="center_link">About</a>
+    </div><!-- /panel -->
+    <div role="main" class="ui-content" style="background-image:url(img/veg_background.jpg);">
+        <div id="dinner1" class="di_div">
+            <div class="ima">
+                <img src="img/di_veg/di_veg_1.jpg" class="imag">
+            </div>
+            <div class="title">Vegetarian Chilli</div>
+            <div class="amount">Size 280g | 274 cal | 1150kJ</div>
+            <div class="desc">Vegetables, kidney beans and lentils in a mild chilli sauce, with white and brown rice.</div>
+        </div>
+        <div id="dinner2" class="di_div">
+            <div class="ima">
+                <img src="img/di_veg/di_veg_2.jpg" class="imag">
+            </div>
+            <div class="title">Asian-style Vegetable Fried Rice</div>
+            <div class="amount">Size 240g | 236 cal | 986kJ</div>
+            <div class="desc">Vegetables and scrambled egg tossed through white rice, seasoned with traditional Asian flavours.</div>
+        </div>
+        <div id="dinner3" class="di_div">
+            <div class="ima">
+                <img src="img/di_veg/di_veg_3.jpg" class="imag">
+            </div>
+            <div class="title">Vegetable Tikka Masala with Paneer Cheese</div>
+            <div class="amount">Size 300g | 330 cal | 1370kJ</div>
+            <div class="desc">A mildly spiced vegetable curry with paneer cheese, served with basmati rice.</div>
+        </div>
+        <div id="dinner4" class="di_div">
+            <div class="ima">
+                <img src="img/di_veg/di_veg_4.jpg" class="imag">
+            </div>
+            <div class="title">Macaroni Cheese</div>
+            <div class="amount">Size 320g | 282 cal | 1180kJ</div>
+            <div class="desc">Macaroni pasta coated in a creamy cheese sauce with broccoli, cauliflower and a parmesan crust.</div>
+        </div>
+    </div>
+</div>
+
+
+<div data-role="page" id="page_breakfast_non_veg" >
+    <div data-role="header">
+        <div data-role="header">
+            <h1 style="font-size: 13px;">Breakfast (Non-Veg)</h1>
+            <a href="#mypanel">
+                <div class="ui-panel-animate">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+            </a>
+            <a href="#page_non_veg" data-transition="pop">Back</a>
+        </div>
+    </div>
+    <div data-role="panel" id="mypanel" data-position="left" data-display="overlay">
+        <img class="img_panel" src="img/healthy_lifestyle.png" width="225px" height="120px">
+        <a href="#" class="center_link" >BMI Calculator</a>
+        <br>
+        <a href="#page_choose_veg_nonveg" class="center_link">Diet Plan</a>
+        <br>
+        <a href="#" class="center_link">Workout Plan</a>
+        <br>
+        <a href="#page_about" class="center_link">About</a>
+    </div><!-- /panel -->
+    <div role="main" class="ui-content" style="background-image:url(img/non_veg_background.jpg);">
+        <div id="breakfast5"class="bk_div">
+            <div id="ima">
+                <img src="img/bk_non_veg/bk_non_veg_1.jpg" class="imag">
+            </div>
+            <div class="title">Whole Wheat Crepes</div>
+            <div class="amount"></div>
+            <div class="desc">Whole Wheat Crepes filled with yogurt, fruit or chicken and veggies.</div>
+        </div>
+        <div id="breakfast6" class="bk_div">
+            <div class="ima">
+                <img src="img/bk_non_veg/bk_non_veg_2.jpg" class="imag">
+            </div>
+            <div class="title">Exotic Garden Salad</div>
+            <div class="amount"></div>
+            <div class="desc">Consume the richness of lettuce, tomato, avocado along with roasted chicken or tuna and eggs. A cool salad like this will keep you energetic through the day.</div>
+        </div>
+        <div id="breakfast7" class="bk_div">
+            <div class="ima">
+                <img src="img/bk_non_veg/bk_non_veg_3.jpg" class="imag">
+            </div>
+            <div class="title">Asparagus and Goat Cheese Frittata</div>
+            <div class="amount"></div>
+            <div class="desc">No turning and flipping. You just warm your favorite seasonal ingredients in a pan with some eggs and then throw it in the oven for all over browning.</div>
+        </div>
+        <div id="breakfast8" class="bk_div">
+            <div class="ima">
+                <img src="img/bk_non_veg/bk_non_veg_4.jpg" class="imag">
+            </div>
+            <div class="title">Gluten Free Cauliflower Pancake</div>
+            <div class="amount"></div>
+            <div class="desc">A delicious cauliflowar pancake with egg on top.</div>
+        </div>
+    </div>
+</div>
+
+<div data-role="page" id="page_lunch_non_veg" >
+    <div data-role="header">
+        <div data-role="header">
+            <h1>Lunch (Non-Veg)</h1>
+            <a href="#mypanel">
+                <div class="ui-panel-animate">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+            </a>
+
+            <a href="#page_non_veg" data-transition="pop">Back</a>
+        </div>
+    </div>
+    <div data-role="panel" id="mypanel" data-position="left" data-display="overlay">
+        <img class="img_panel" src="img/healthy_lifestyle.png" width="225px" height="120px">
+        <a href="#" class="center_link">BMI Calculator</a>
+        <br>
+        <a href="#page_choose_veg_nonveg" class="center_link">Diet Plan</a>
+        <br>
+        <a href="#" class="center_link">Workout Plan</a>
+        <br>
+        <a href="#page_about" class="center_link">About</a>
+    </div><!-- /panel -->
+    <div role="main" class="ui-content" style="background-image:url(img/non_veg_background.jpg);">
+        <div id="lunch5"class="ln_div">
+            <div class="ima">
+                <img src="img/ln_non_veg/ln_non_veg_1.jpg" class="imag">
+            </div>
+            <div class="title">Beef Nachos</div>
+            <div class="amount">Size 140g | 252 cal | 1060kJ</div>
+            <div class="desc">A Mexican-style beef nacho sauce served with crunchy tortilla chips.</div>
+        </div>
+        <div id="lunch6" class="ln_div">
+            <div class="ima">
+                <img src="img/ln_non_veg/ln_non_veg_2.jpg" class="imag">
+            </div>
+            <div class="title">Tuna Pasta</div>
+            <div class="amount">Size 200g | 238 cal | 998kJ</div>
+            <div class="desc">Penne pasta with tuna and spring vegetables in a creamy white sauce and topped with cheese.</div>
+        </div>
+        <div id="lunch7" class="ln_div">
+            <div class="ima">
+                <img src="img/ln_non_veg/ln_non_veg_3.jpg" class="imag">
+            </div>
+            <div class="title">Spaghetti Bolognaise</div>
+            <div class="amount">Size 200g | 216 cal | 908kJ</div>
+            <div class="desc">Spaghetti in a traditional bolognaise sauce.</div>
+        </div>
+        <div id="lunch8" class="ln_div">
+            <div class="ima">
+                <img src="img/ln_non_veg/ln_non_veg_4.jpg" class="imag">
+            </div>
+            <div class="title">Beef pie</div>
+            <div class="amount">Size 150g | 256 cal | 1070kJ</div>
+            <div class="desc">A seasoned lean beef filling surrounded by thin, crisp golden pastry.</div>
+        </div>
+    </div>
+    
+</div>
+
+<div data-role="page" id="page_dinner_non_veg" >
+    <div data-role="header">
+        <div data-role="header">
+            <h1>Dinner (Non-Veg)</h1>
+            <a href="#mypanel">
+                <div class="ui-panel-animate">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+            </a>
+            <a href="#page_non_veg" data-transition="pop">Back</a>
+        </div>
+    </div>
+    <div data-role="panel" id="mypanel" data-position="left" data-display="overlay">
+        <img class="img_panel" src="img/healthy_lifestyle.png" width="225px" height="120px">
+        <a href="#" class="center_link" >BMI Calculator</a>
+        <br>
+        <a href="#page_choose_veg_nonveg" class="center_link">Diet Plan</a>
+        <br>
+        <a href="#" class="center_link">Workout Plan</a>
+        <br>
+        <a href="#page_about" class="center_link">About</a>
+    </div><!-- /panel -->
+    <div role="main" class="ui-content" style="background-image:url(img/non_veg_background.jpg);">
+        <div id="dinner5" class="di_div">
+            <div class="ima">
+                <img src="img/di_non_veg/di_non_veg_1.jpg" class="imag">
+            </div>
+            <div class="title">Chicken Parmigiana</div>
+            <div class="amount">Size 300g | 390 cal | 1640kJ</div>
+            <div class="desc">A classic chicken parma with Napoli sauce and cheese, served with roasted potatoes and green peas.</div>
+        </div>
+        <div id="dinner6" class="di_div">
+            <div class="ima">
+                <img src="img/di_non_veg/di_non_veg_2.jpg" class="imag">
+            </div>
+            <div class="title">Bangers & Mash</div>
+            <div class="amount">Size 150g | 306 cal | 1280kJ</div>
+            <div class="desc">Beef sausages in a rich onion gravy with creamy mashed potato.</div>
+        </div>
+        <div id="dinner7" class="di_div">
+            <div class="ima">
+                <img src="img/di_non_veg/di_non_veg_3.jpg" class="imag">
+            </div>
+            <div class="title">Spaghetti & Meatballs</div>
+            <div class="amount">Size 295g | 369 cal | 1540kJ</div>
+            <div class="desc">Traditional meatballs in a rich tomato sauce with green beans.</div>
+        </div>
+        <div id="dinner8" class="di_div">
+            <div class="ima">
+                <img src="img/di_non_veg/di_non_veg_4.jpg" class="imag">
+            </div>
+            <div class="title">Butter Chicken</div>
+            <div class="amount">Size 300g | 360 cal | 1510kJ</div>
+            <div class="desc">Tender chicken pieces in a creamy tomato sauce, served with peas and traditional Indian rice.</div>
+        </div>
+    </div> 
+</div>
+
+<div data-role="page" id="page_about">
+    <div data-role="header">
+        <div data-role="header">
+            <h1>About</h1>
+            <a href="#mypanel">
+                <div class="ui-panel-animate">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div data-role="panel" id="mypanel" data-position="left" data-display="overlay">
+        <img class="img_panel" src="img/healthy_lifestyle.png" width="225px" height="120px">
+        <a href="#" class="center_link" >BMI Calculator</a>
+        <br>
+        <a href="#page_choose_veg_nonveg" class="center_link">Diet Plan</a>
+        <br>
+        <a href="#" class="center_link">Workout Plan</a>
+        <br>
+        <a href="#page_about" class="center_link">About</a>
+
+    </div><!-- /panel -->
+
+    <div role="main" class="ui-content" style="height:100%;background-image:url(img/about_background.jpg);">
+        <div id="about_in">
+            <p style="font-family: serif;">This ‘Healthy Lifestyle’ hybrid application has been developed by Tahroun Bissonauth(170186) and Irfaan Nubee(170196).</p>
+            <p style="font-family: serif;">The aim of this app is to raise awareness concerning people’s health and well-being, and lastly, promote a healthy lifestyle.</p>
+            <p style="font-family: serif;">Lifestyle is referred to the characteristics of inhabitants of a region in special time and place. It includes day-to-day behaviors and functions of individuals in job, activities, fun and diet. </p>
+            <p style="font-family: serif;">A healthy lifestyle is one, which helps to keep and improve people’s health and well-being. According to WHO, 60% of related factors to individual health and quality of life are correlated to lifestyle. Today, wide changes have occurred in life of all people. Obesity, physical inactivity, unhealthy diet, tobacco smoking, risky alcohol consumption, high blood pressure and high cholesterol are aspects of an unhealthy lifestyle.</p>
+            <p style="font-family: serif;">With the help of this app, people will know what kind of meals they should opt for breakfast, lunch and dinner whether they are non-vegetarian or vegetarian.
+            Not only diet plans are provided, but also workout plans for several body parts will be shown in this app and location for fitness centers in Mauritius.</p>
+
+        </div>
+    </div>
+    
+</div>
+        <!-- END DIETS & ABOUT PAGE NUBEE -->
+        
+        <!-- WORKOUTS PAGE -->
+        <div data-role="page"  class="backimg" id="workoutpage">
+            <div data-role="header">
+                <h3>Get Moving</h3>
+                <a href="#homepage" data-icon="home">HOME</a>
+            </div>
+            <div role="main">
+                <form method="post" onsubmit="return submitweight()">
+                <div class="ui-grid-d">
+                     <div class="ui-block-a"><label class="labeltext">Workout Week</label></div>
+                     <div class="ui-block-b">
+                        <input type="number" required="" name="weekout" />
+                    </div>
+                     <div class="ui-block-c">
+                         <label class="labeltext">Weight</label>
+                     </div>
+                     <div class="ui-block-d">
+                         <input type="number" required name="weightout" />
+                     </div>
+                </div>
+                <input type="submit" value="VALIDATE WEEK AND WEIGHT"/>
+                </form>
+                <!-- <div class="ui-grid-solo"> -->
+                    <!-- <div class="ui-block-a"> -->
+                    <div class="thumbnaildiv">
+                        <a href="#abspage" class="ui-shadow">
+                        <div class="thumbnailabs">
+                            <div class="content">
+                                <img src="img/absicon.png"/>
+                                <p>WORKOUT YOUR ABS</p>
+                            </div>
+                        </div>
+                    </a>
+                    </div>
+                    
+                    <div class="thumbnaildiv">
+                        <a href="#fullbodypage" class="ui-shadow">
+                        <div class="thumbnailabs2">
+                            <div class="content">
+                                <img src="img/fullbodyicon.png"/>
+                                <p>FULL BODY WORKOUT</p>
+                        </div>
+                    </div>
+                    </a>
+                    </div>
+                    <div class="thumbnaildiv">
+                        <a href="#armspage" class="ui-shadow">
+                        <div class="thumbnailabs3">
+                            <div class="content">
+                                <img src="img/armicon.png"/>
+                                <p>ARMS WORKOUT</p>
+                        </div>
+                    </div>
+                    </a>
+                    </div>
+                    <div class="thumbnaildiv">
+                        <a href="#legspage" class="ui-shadow">
+                        <div class="thumbnailabs4">
+                            <div class="content">
+                                <img src="img/legicon.png"/>
+                                <p>LEGS WORKOUT</p>
+                        </div>
+                    </div>
+                    </a>
+                    </div>
+                    <button onclick="graph()">VIEW PROGRESS</button>
+                    <!-- </div> -->
+                <!-- </div> -->
+            </div>
+            
+            
+            <div data-role="footer">
+                <h1>SELECT WORKOUT</h1>
+                
+            </div>  
+        </div>
+        <!-- END WORKOUTS page -->
+        <!-- GRAPH-->
+        <div data-role="page" id="graphpage">
+            <div data-role="header">
+                <h3>WEIGHT LOSS GRAPH</h3>
+            </div>
+            <div role="main">
+                <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+                <div id="outputdatabase">
+                    <ul data-role="listview" id="resultList">
+                        
+                    </ul>
+                </div>
+            </div>
+            
+            <div data-role="footer">
+                
+            </div>  
+        </div>
+        <!-- ABS PAGE -->
+        <div data-role="page" id="abspage">
+            <div data-role="header">
+                <h3>Abs Workout</h3>
+                <a href="#" data-icon="arrow-l" data-rel="back">BACK</a>
+            </div>
+            <div role="main">
+                <div class="ui-grid-solo">
+                    <div class="ui-block-a">
+                        <p class="workpara">ABDOMINAL CRUNCHES</p>
+                        <img class="workimg" src="img/abcrunch.gif">
+                        <div class="workdiv">
+                            
+                            <p><h3>ABDOMINAL CRUNCHES x 22</h3>
+                                <br>
+                                Lie on your back with your knees bent and your arms behind your head.<br>
+                                Then lift your upper body off the floor. Hold for a fer seconds and slowly return.<br>
+                                It primarily works the rectus abdominis muscle and the obliques.
+
+                            </p>
+                        </div>  
+                        <p class="workpara">SIT UPS</p>
+                        <img class="workimg" src="img/situps.gif">
+                        <div class="workdiv">
+                            <p><h3>SIT UPS x 22</h3>
+                                <br>
+                                Lie on your back with your knees bent and your arms behind your ears.<br>
+                                Then lift your upper body off the floor to the sitting position.Dont tug your neg when you get up.<br>
+                                Slowly go back to the start position and repeat the exercise.
+                                <br> If your spine hurts, please stop and change to another workout plan.
+
+                            </p>
+                        </div> 
+                    </div>
+                    <!-- Save to DB -->
+                    <a href="#workoutpage" style="width:8em;float: right;" class="ui-btn ui-overlay-shadow ui-corner-all ui-btn-icon-right ui-icon-check ui-btn-icon-right">Completed</a>
+
+                </div>
+            </div>
+            
+            <div data-role="footer">
+                <h1>Move to Next</h1>
+            </div>  
+        </div>
+        <!-- End ABS PAGE -->
+
+        <!-- FULL BODY PAGE -->
+        <div data-role="page" id="fullbodypage">
+            <div data-role="header">
+                <h3>Full Body Workout</h3>
+                <a href="#" data-icon="arrow-l" data-rel="back">BACK</a>
+            </div>
+            <div role="main">
+                <div class="ui-grid-solo">
+                    <div class="ui-block-a">
+                        <p class="workpara">JUMPING JACKS</p>
+                        <img class="workimg" src="img/jacks.gif">
+                        <div class="workdiv">
+                            
+                            <p><h3>Jumping Jacks x 30</h3>
+                                <br>
+                                Start with your feet together and your arms by your sides, then jump up with your feet apart and your hands overhead.<br>
+                                Return to the start position then do the next rep. This exercise provides a full-body workout and works all your large muscle groups
+                            </p>
+                        </div>  
+                        <p class="workpara">PLANK</p>
+                        <img class="workimg" src="img/plank.jpg">
+                        <div class="workdiv">
+                            <p><h3>Plank 35s</h3>
+                                <br>
+                                Lie on the floor with your toes and forearms on the ground.<br>
+                                Keep your body straight and hold this position as long as you can.
+                                <br> This exercise strengthens the abdomen, back and shoulders.
+
+                            </p>
+                        </div> 
+                    </div>
+                    <!-- Save to DB -->
+                    <a href="#workoutpage" style="width:8em;float: right;" class="ui-btn ui-overlay-shadow ui-corner-all ui-btn-icon-right ui-icon-check ui-btn-icon-right">Completed</a>
+
+                </div>
+            </div>
+            
+            <div data-role="footer">
+                <h1>Great Job</h1>
+            </div>  
+        </div>
+        <!-- End FULL BODY PAGE -->
+        <!-- ARMS PAGE -->
+        <div data-role="page" id="armspage">
+            <div data-role="header">
+                <h3>Arm Workout</h3>
+                <a href="#" data-icon="arrow-l" data-rel="back">BACK</a>
+            </div>
+            <div role="main">
+                <div class="ui-grid-solo">
+                    <div class="ui-block-a">
+                        <p class="workpara">PUSH-UPS</p>
+                        <img class="workimg" src="img/pushup.gif">
+                        <div class="workdiv">
+                            
+                            <p><h3>Push-Ups x 10</h3>
+                                <br>
+                                Lay prone on the ground with arms suppporting your body.<br>
+                                Keep your body straight while raising and lowering your body with your arms.<br>
+                                The exercise works the chest, shoulders, triceps, back and legs.
+
+                            </p>
+                        </div>  
+                        <p class="workpara">TRICEPS DIPS</p>
+                        <img class="workimg" src="img/tricepdips.gif">
+                        <div class="workdiv">
+                            <p><h3>Triceps Dips x 10</h3>
+                                <br>
+                                For the start position, sit on a chair. Then move your hip off the chair with your hands holding the edge of the chair<br>
+                                Slowly bend and stretch your arms to make your body go up and down. This is a great exercise for the triceps
+                    
+
+                            </p>
+                        </div> 
+                    </div>
+                    <!-- Save to DB -->
+                    <a href="#workoutpage" style="width:8em;float: right;" class="ui-btn ui-overlay-shadow ui-corner-all ui-btn-icon-right ui-icon-check ui-btn-icon-right">Completed</a>
+
+                </div>
+            </div>
+            
+            <div data-role="footer">
+                <h1>Good job</h1>
+            </div>  
+        </div>
+        <!-- End ARMS PAGE -->
+        <!-- LEGS PAGE -->
+        <div data-role="page" id="legspage">
+            <div data-role="header">
+                <a href="#" data-icon="arrow-l" data-rel="back">BACK</a>
+                <h3>Legs Workout</h3>
+            </div>
+            <div role="main">
+                <div class="ui-grid-solo">
+                    <div class="ui-block-a">
+                        <p class="workpara">Curtsy Lunges</p>
+                        <img class="workimg" src="img/curtsy.gif">
+                        <div class="workdiv">
+                            
+                            <p><h3>CURTSY LUNGES x 28, each side x14</h3>
+                                <br>
+                                Stand straight up. Then step back with your left leg to the right, and bend your your knees at the same time.<br>
+                                Go back to the start position and switch to the other side.
+                            </p>
+                        </div>  
+                        <p class="workpara">Plie Squats</p>
+                        <img class="workimg" src="img/pliesquats.gif">
+                        <div class="workdiv">
+                            <p><h3>PLIE SQUATS x 16</h3>
+                                <br>
+                                Stand with your hands on your hips and feet a little wider than shoulder width apart.<br>
+                                Then lower your body until your thighs are parallel to the floor.<br>
+                                Your knees should be extended in the same direction as your tiptoes.
+
+                            </p>
+                        </div> 
+                    </div>
+                    <!-- Save to DB -->
+                    <a href="#workoutpage" style="width:8em;float: right;" class="ui-btn ui-overlay-shadow ui-corner-all ui-btn-icon-right ui-icon-check ui-btn-icon-right">Completed</a>
+
+                </div>
+            </div>
+            
+            <div data-role="footer">
+                <h1>Good job</h1>
+            </div>  
+        </div>
+        <!-- End LEGS PAGE -->
+
+        <!-- Steps PAGE -->
+        <div data-role="page" class="backimg" id="stepspage">
+            <div data-role="header">
+                <a href="#" data-icon="arrow-l" data-rel="back">BACK</a>
+                <h3>Get Moving</h3>
+
+            </div>
+            <div role="main">
+                
+                <div class="ui-grid-a" >
+                    <div class="ui-block-a ">
+                        <button onclick="steps2()">Start</button>
+                        <!-- <input type="image" data-role="button" data-transition="flip" onclick="pageone()" src="img/bmiicon.png"> -->
+                    </div>
+                    <div class="ui-block-b "><p id="mysteps"></p></div>
+                </div>
+
+            </div>
+            
+            
+            <div data-role="footer">
+                <h1>Steps Counter Plugin</h1>
+            </div>  
+        </div>
+        <!-- END Steps page -->        
+        <!-- MAPS PAGE -->
+        <div data-role="page"  class="backimg" id="locationpage">
+        <div data-role="header">
+            <h3>Nearby Gyms</h3>
+            <a href="#homepage" data-icon="home">HOME</a>
+        </div>
+        <div role="main">
+        
+            <div id="mapid" style="width:100%;height:450px;">
+                
+            </div>
+
+            <button id="btnLocation" style="margin-top: 10px;" onclick="getloc()">My location</button> 
+            <br>
+            <p id="avai" style="color:green;"></p>
+
+            <br>
+            Latitude:<div id="latid"></div> Longitude:<div id="longid"></div>
+        </div>
+        
+        <div data-role="footer">
+            <h1>Leaflet API</h1>
+        </div>
+    </div>
+        <!-- END MAPS PAGE -->
+			<!--<div data-role="navbar">
+				<ul>
+					<li><a href="#" class="ui-btn-active ui-state-persist"data-icon="home">Home</a></li>
+					<li><a href="#pagetwo" data-icon="grid">Calculator</a></li>
+					<li><a href="#pagethree"  data-icon="info">Help</a></li>
+				</ul>
+			</div>
+			-->
+
+
+	
+</body>
+</html>
