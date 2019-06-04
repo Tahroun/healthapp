@@ -312,7 +312,7 @@
                 // pedometerData.floorsDescended;
             };
            var onError = function() {
-                document.getElementById("mysteps").innerHTML = 'error';
+                document.getElementById("mysteps").innerHTML = 'SENSOR NOT FOUND ERROR';
                
             };   
             pedometer.startPedometerUpdates(successHandler, onError);
@@ -716,14 +716,15 @@
                         <div class="bar3"></div>
                     </div>
                 </a>
+                <a href="#homepage" data-icon="home" data-transition="pop">HOME</a>
             </div>
             <div data-role="panel" id="mypanel" data-position="left" data-display="overlay">
                 <img class="img_panel" src="img/healthy_lifestyle.png" width="225px" height="120px">
-                <a href="#" class="center_link" >BMI Calculator</a>
+                <a href="#pageone" class="center_link" >BMI Calculator</a>
                 <br>
                 <a href="#page_choose_veg_nonveg" class="center_link">Diet Plan</a>
                 <br>
-                <a href="#" class="center_link">Workout Plan</a>
+                <a href="#workoutpage" class="center_link">Workout Plan</a>
                 <br>
                 <a href="#page_about" class="center_link">About</a>
             </div><!-- /panel -->
@@ -750,7 +751,7 @@
 
      
     <div data-role="page" id="page_non_veg" >
-        <div data-role="header">
+        
             <div data-role="header">
                 <h1>Non-Veg Diet</h1>
                 <a href="#mypanel">
@@ -762,7 +763,7 @@
             </a>
             <a href="#page_choose_veg_nonveg" data-transition="pop">Back</a>
         </div>
-    </div>
+    
     <div data-role="panel" id="mypanel" data-position="left" data-display="overlay">
         <img class="img_panel" src="img/healthy_lifestyle.png" width="225px" height="120px">
 
@@ -790,7 +791,7 @@
 
 
 <div data-role="page" id="page_veg" >
-    <div data-role="header">
+    
         <div data-role="header">
             <h1>Veg Diet</h1>
             <a href="#mypanel">
@@ -802,7 +803,7 @@
             </a>
             <a href="#page_choose_veg_nonveg" data-transition="pop">Back</a>
         </div>
-    </div>
+    
     <div data-role="panel" id="mypanel" data-position="left" data-display="overlay">
         <img class="img_panel" src="img/healthy_lifestyle.png" width="225px" height="120px">
         <a href="#" class="center_link" >BMI Calculator</a>
@@ -827,7 +828,7 @@
 </div>
 
 <div data-role="page" id="page_breakfast_veg">
-    <div data-role="header">
+    
         <div data-role="header">
             <h1>Breakfast (Veg)</h1>
             <a href="#mypanel">
@@ -839,7 +840,7 @@
             </a>
             <a href="#page_veg" data-transition="pop">Back</a>
         </div>
-    </div>
+    
     <div data-role="panel" id="mypanel" data-position="left" data-display="overlay">
         <img class="img_panel" src="img/healthy_lifestyle.png" width="225px" height="120px">
         <a href="#" class="center_link" >BMI Calculator</a>
@@ -887,7 +888,7 @@
 </div>
 
 <div data-role="page" id="page_lunch_veg" >
-    <div data-role="header">
+    
         <div data-role="header">
             <h1>Lunch (Veg)</h1>
             <a href="#mypanel">
@@ -899,14 +900,14 @@
             </a>
             <a href="#page_veg" data-transition="pop">Back</a>
         </div>
-    </div>
+    
     <div data-role="panel" id="mypanel" data-position="left" data-display="overlay">
         <img class="img_panel" src="img/healthy_lifestyle.png" width="225px" height="120px">
-        <a href="#" class="center_link" >BMI Calculator</a>
+        <a href="#pageone" class="center_link" >BMI Calculator</a>
         <br>
         <a href="#page_choose_veg_nonveg" class="center_link">Diet Plan</a>
         <br>
-        <a href="#" class="center_link">Workout Plan</a>
+        <a href="#workoutpage" class="center_link">Workout Plan</a>
         <br>
         <a href="#page_about" class="center_link">About</a>
     </div><!-- /panel -->
@@ -947,7 +948,7 @@
 </div>
 
 <div data-role="page" id="page_dinner_veg" >
-    <div data-role="header">
+    
         <div data-role="header">
             <h1>Dinner (Veg)</h1>
             <a href="#mypanel">
@@ -959,15 +960,15 @@
             </a>
             <a href="#page_veg" data-transition="pop">Back</a>
         </div>
-    </div>
+    
     <div data-role="panel" id="mypanel" data-position="left" data-display="overlay">
         <img class="img_panel" src="img/healthy_lifestyle.png" width="225px" height="120px">
 
-        <a href="#" class="center_link" >BMI Calculator</a>
+        <a href="#pageone" class="center_link" >BMI Calculator</a>
         <br>
         <a href="#page_choose_veg_nonveg" class="center_link">Diet Plan</a>
         <br>
-        <a href="#" class="center_link">Workout Plan</a>
+        <a href="#workoutpage" class="center_link">Workout Plan</a>
         <br>
         <a href="#page_about" class="center_link">About</a>
     </div><!-- /panel -->
@@ -1009,7 +1010,7 @@
 
 
 <div data-role="page" id="page_breakfast_non_veg" >
-    <div data-role="header">
+    
         <div data-role="header">
             <h1 style="font-size: 13px;">Breakfast (Non-Veg)</h1>
             <a href="#mypanel">
@@ -1021,14 +1022,14 @@
             </a>
             <a href="#page_non_veg" data-transition="pop">Back</a>
         </div>
-    </div>
+    
     <div data-role="panel" id="mypanel" data-position="left" data-display="overlay">
         <img class="img_panel" src="img/healthy_lifestyle.png" width="225px" height="120px">
-        <a href="#" class="center_link" >BMI Calculator</a>
+        <a href="#pageone" class="center_link" >BMI Calculator</a>
         <br>
         <a href="#page_choose_veg_nonveg" class="center_link">Diet Plan</a>
         <br>
-        <a href="#" class="center_link">Workout Plan</a>
+        <a href="#workoutpage" class="center_link">Workout Plan</a>
         <br>
         <a href="#page_about" class="center_link">About</a>
     </div><!-- /panel -->
@@ -1069,7 +1070,7 @@
 </div>
 
 <div data-role="page" id="page_lunch_non_veg" >
-    <div data-role="header">
+    
         <div data-role="header">
             <h1>Lunch (Non-Veg)</h1>
             <a href="#mypanel">
@@ -1082,14 +1083,14 @@
 
             <a href="#page_non_veg" data-transition="pop">Back</a>
         </div>
-    </div>
+    
     <div data-role="panel" id="mypanel" data-position="left" data-display="overlay">
         <img class="img_panel" src="img/healthy_lifestyle.png" width="225px" height="120px">
-        <a href="#" class="center_link">BMI Calculator</a>
+        <a href="#pageone" class="center_link">BMI Calculator</a>
         <br>
         <a href="#page_choose_veg_nonveg" class="center_link">Diet Plan</a>
         <br>
-        <a href="#" class="center_link">Workout Plan</a>
+        <a href="#workoutpage" class="center_link">Workout Plan</a>
         <br>
         <a href="#page_about" class="center_link">About</a>
     </div><!-- /panel -->
@@ -1131,7 +1132,7 @@
 </div>
 
 <div data-role="page" id="page_dinner_non_veg" >
-    <div data-role="header">
+    
         <div data-role="header">
             <h1>Dinner (Non-Veg)</h1>
             <a href="#mypanel">
@@ -1143,14 +1144,14 @@
             </a>
             <a href="#page_non_veg" data-transition="pop">Back</a>
         </div>
-    </div>
+    
     <div data-role="panel" id="mypanel" data-position="left" data-display="overlay">
         <img class="img_panel" src="img/healthy_lifestyle.png" width="225px" height="120px">
-        <a href="#" class="center_link" >BMI Calculator</a>
+        <a href="#pageone" class="center_link" >BMI Calculator</a>
         <br>
         <a href="#page_choose_veg_nonveg" class="center_link">Diet Plan</a>
         <br>
-        <a href="#" class="center_link">Workout Plan</a>
+        <a href="#workoutpage" class="center_link">Workout Plan</a>
         <br>
         <a href="#page_about" class="center_link">About</a>
     </div><!-- /panel -->
@@ -1191,7 +1192,7 @@
 </div>
 
 <div data-role="page" id="page_about">
-    <div data-role="header">
+    
         <div data-role="header">
             <h1>About</h1>
             <a href="#mypanel">
@@ -1202,14 +1203,14 @@
                 </div>
             </a>
         </div>
-    </div>
+    
     <div data-role="panel" id="mypanel" data-position="left" data-display="overlay">
         <img class="img_panel" src="img/healthy_lifestyle.png" width="225px" height="120px">
-        <a href="#" class="center_link" >BMI Calculator</a>
+        <a href="#pageone" class="center_link" >BMI Calculator</a>
         <br>
         <a href="#page_choose_veg_nonveg" class="center_link">Diet Plan</a>
         <br>
-        <a href="#" class="center_link">Workout Plan</a>
+        <a href="#workoutpage" class="center_link">Workout Plan</a>
         <br>
         <a href="#page_about" class="center_link">About</a>
 
@@ -1311,6 +1312,7 @@
         <div data-role="page" id="graphpage">
             <div data-role="header">
                 <h3>WEIGHT LOSS GRAPH</h3>
+                <a href="#" data-icon="arrow-l" data-rel="back">BACK</a>
             </div>
             <div role="main">
                 <div id="chartContainer" style="height: 370px; width: 100%;"></div>
